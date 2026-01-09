@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christopher De La Torre — Projects</title>
+  <meta name="description" content="Portfolio of Engineering and Design Projects by Christopher De La Torre.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand" aria-label="Site title">Christopher De La Torre</div>
+      <nav class="nav" aria-label="Primary">
+        <a class="button" href="index.html">Projects</a>
+        <a class="button" href="resume.pdf" aria-label="Download resume">Resume</a>
+        <a class="button" href="mailto:chrisdelatorre10@gmail.com" aria-label="Contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="sr-only">Projects</h1>
+
+    <div class="controls" role="region" aria-label="Search and filters">
+      <form id="search-form" class="search" role="search">
+        <input id="search" type="search" placeholder="Search projects, e.g., 'connector', 'packaging', 'automation' " aria-label="Search projects">
+      </form>
+      <div id="tagbar" class="tagbar" aria-label="Filter by tag" style="display:none;"></div>
+    </div>
+
+    <section id="grid" class="grid" aria-label="Project grid"></section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Christopher De La Torre. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
