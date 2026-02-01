@@ -111,4 +111,29 @@ document.addEventListener("DOMContentLoaded", () => {
   attachSearch();
   render();
 });
+// ===== Avatar lightbox =====
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("avatarBtn");
+  const box = document.getElementById("avatarLightbox");
+  const close = document.getElementById("avatarClose");
+
+  if (!btn || !box || !close) return;
+
+  const open = () => {
+    box.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  };
+
+  const shut = () => {
+    box.classList.add("hidden");
+    document.body.style.overflow = "";
+  };
+
+  btn.addEventListener("click", open);
+  close.addEventListener("click", shut);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") shut();
+  });
+});
 
