@@ -9,10 +9,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<div class="lightbox hidden" id="avatarLightbox" role="dialog" aria-modal="true" aria-label="Profile photo">
+  <button class="lightbox-backdrop" id="avatarClose" aria-label="Close profile photo"></button>
+  <img class="lightbox-img" src="assets/images/profile.jpg" alt="Christopher De La Torre profile photo">
+</div>
+
 <body>
   <header class="header">
     <div class="header-inner">
-      <div class="brand" aria-label="Site title">Christopher De La Torre</div>
+      <div class="brand">
+  <button class="avatar-btn" id="avatarBtn" aria-label="Open profile photo">
+    <img class="avatar" src="assets/images/profile.jpg" alt="Christopher De La Torre">
+  </button>
+  <span class="brand-name" aria-label="Site title">Christopher De La Torre</span>
+</div>
+
       <nav class="nav" aria-label="Primary">
         <a class="button" href="index.html">Projects</a>
         <a class="button" href="resume.pdf" aria-label="Download resume">Resume</a>
@@ -30,6 +41,8 @@
       </form>
       <div id="tagbar" class="tagbar" aria-label="Filter by tag" style="display:none;"></div>
     </div>
+  
+
 
     <section id="grid" class="grid" aria-label="Project grid"></section>
   </main>
