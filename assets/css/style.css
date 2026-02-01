@@ -255,4 +255,13 @@ img{ line-height:0; }
   box-shadow:0 12px 40px rgba(0,0,0,.45);
   border:1px solid rgba(255,255,255,.12);
 }
+/* Force header nav links to always be white */
+.header .nav a,
+.header .nav a:visited,
+.header .nav a:hover,
+.header .nav a:active,
+.header .nav a:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
 
