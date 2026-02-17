@@ -35,6 +35,7 @@ body{
   border-bottom:1px solid color-mix(in srgb, var(--ring) 20%, transparent);
 }
 .header-inner{
+  position: relative;          /* ADD THIS */
   max-width:1100px;
   margin:0 auto;
   padding:18px 20px;
@@ -43,15 +44,18 @@ body{
   align-items:center;
   justify-content:space-between;
 }
-.brand{font-weight:700; letter-spacing:.3px; font-size:18px}
-.nav{display:flex; gap:12px; align-items:center}
-.button, .chip{
-  border:1px solid color-mix(in srgb, var(--ring) 36%, transparent);
-  background:var(--card);
-  color:var(--ink);
-  border-radius:999px;
-  padding:10px 14px;
-  cursor:pointer;
+
+/* PERFECTLY center your name */
+.brand{
+  position:absolute;           /* ADD THIS */
+  left:50%;                    /* ADD THIS */
+  transform:translateX(-50%);  /* ADD THIS */
+  font-weight:700;
+  letter-spacing:.3px;
+  font-size:18px;
+  text-align:center;
+  white-space:nowrap;
+
 }
 .button:hover, .chip:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
 .button:focus-visible, .chip:focus-visible{
