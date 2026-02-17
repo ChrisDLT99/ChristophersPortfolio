@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,33 +9,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<div class="lightbox hidden" id="avatarLightbox" role="dialog" aria-modal="true" aria-label="Profile photo">
+  <button class="lightbox-backdrop" id="avatarClose" aria-label="Close profile photo"></button>
+  <img class="lightbox-img" src="assets/images/profile.jpg" alt="Christopher De La Torre profile photo">
+</div>
 
 <body>
-
-  <!-- Profile photo lightbox -->
-  <div class="lightbox hidden" id="avatarLightbox" role="dialog" aria-modal="true" aria-label="Profile photo">
-    <button class="lightbox-backdrop" id="avatarClose" aria-label="Close profile photo"></button>
-    <img class="lightbox-img" src="assets/images/profile.jpg" alt="Christopher De La Torre profile photo">
-  </div>
-
   <header class="header">
     <div class="header-inner">
+      <div class="brand">
+  <button class="avatar-btn" id="avatarBtn" aria-label="Open profile photo">
+    <img class="avatar" src="assets/images/profile.jpg" alt="Christopher De La Torre">
+  </button>
+  <span class="brand-name" aria-label="Site title">Christopher De La Torre</span>
+</div>
 
-      <!-- Profile photo -->
-      <button class="profile-pic" id="avatarBtn" aria-label="Open profile photo">
-        <img src="assets/images/profile.jpg" alt="Christopher De La Torre">
-      </button>
-
-      <!-- Name -->
-      <div class="brand">Christopher De La Torre</div>
-
-      <!-- Nav -->
-      <nav class="nav">
-       
-        <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-       <a href="mailto:chrisdelatorre10@gmail.com">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="button" href="index.html">Projects</a>
+        <a class="button" href="resume.pdf" aria-label="Download resume">Resume</a>
+        <a class="button" href="mailto:chrisdelatorre10@gmail.com" aria-label="Contact">Contact</a>
       </nav>
-
     </div>
   </header>
 
@@ -43,53 +37,23 @@
 
     <div class="controls" role="region" aria-label="Search and filters">
       <form id="search-form" class="search" role="search">
-        <input
-          id="search"
-          type="search"
-          placeholder="Search projects, e.g., 'connector', 'packaging', 'automation'"
-          aria-label="Search projects">
+        <input id="search" type="search" placeholder="Search projects, e.g., 'connector', 'packaging', 'automation' " aria-label="Search projects">
       </form>
       <div id="tagbar" class="tagbar" aria-label="Filter by tag" style="display:none;"></div>
     </div>
+  
+
 
     <section id="grid" class="grid" aria-label="Project grid"></section>
   </main>
-
 
   <footer class="footer">
     © <span id="year"></span> Christopher De La Torre. All rights reserved.
   </footer>
 
-  <!-- Year -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
-  <!-- Avatar lightbox logic -->
-  <script>
-    const avatarBtn = document.getElementById('avatarBtn');
-    const avatarLightbox = document.getElementById('avatarLightbox');
-    const avatarClose = document.getElementById('avatarClose');
-
-    function openAvatar() {
-      avatarLightbox.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeAvatar() {
-      avatarLightbox.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    avatarBtn?.addEventListener('click', openAvatar);
-    avatarClose?.addEventListener('click', closeAvatar);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeAvatar();
-    });
-  </script>
-
   <script src="assets/js/main.js"></script>
-
 </body>
 </html>
