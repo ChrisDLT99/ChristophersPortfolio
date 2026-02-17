@@ -198,11 +198,7 @@ img{ line-height:0; }
   content:none !important;
   display:none !important;
 }
-.img-frame{
-  border:none !important;
-  outline:none !important;
-  box-shadow:none !important;
-}
+
 .img-frame img,
 .project-image{
   border:0 !important;
@@ -290,3 +286,17 @@ img{ line-height:0; }
   margin-left: 28px !important;  /* adjust: 20/24/28/32 */
 }
 
+/* === Make project image frames look good in BOTH light + dark === */
+.project-gallery .project-image,
+.img-frame{
+  background: #ffffff;                 /* always white card */
+  border: 1px solid rgba(15,23,42,.14); /* visible in light mode */
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Keep the image itself clean */
+.img-frame img,
+.project-image{
+  background: transparent !important;
+}
