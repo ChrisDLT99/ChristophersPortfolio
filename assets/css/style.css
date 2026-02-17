@@ -280,4 +280,13 @@ img{ line-height:0; }
   transform:translateX(-50%) !important;
   white-space:nowrap;
 }
+/* Force spacing between header links */
+.header .nav{
+  display:flex !important;
+  align-items:center !important;
+}
+
+.header .nav a + a{
+  margin-left: 28px !important;  /* adjust: 20/24/28/32 */
+}
 
