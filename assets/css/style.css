@@ -1,3 +1,4 @@
+
 /* Base reset and typography */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -13,12 +14,7 @@ html,body{margin:0;padding:0}
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#0b1220;
-    --ink:#f1f5f9;
-    --muted:#94a3b8;
-    --card:#0f172a;
-    --accent:#e2e8f0;
-    --ring:#475569;
+    --bg:#0b1220; --ink:#f1f5f9; --muted:#94a3b8; --card:#0f172a; --accent:#e2e8f0; --ring:#475569;
   }
 }
 body{
@@ -35,56 +31,34 @@ body{
   border-bottom:1px solid color-mix(in srgb, var(--ring) 20%, transparent);
 }
 .header-inner{
-  position: relative;          /* ADD THIS */
-  max-width:1100px;
-  margin:0 auto;
-  padding:18px 20px;
-  display:flex;
-  gap:36px;
-  align-items:center;
-  justify-content:space-between;
+  max-width:1100px; margin:0 auto; padding:18px 20px; display:flex; gap:18px; align-items:center; justify-content:space-between;
 }
-
-/* PERFECTLY center your name */
-.brand{
-  position:absolute;           /* ADD THIS */
-  left:50%;                    /* ADD THIS */
-  transform:translateX(-50%);  /* ADD THIS */
-  font-weight:700;
-  letter-spacing:.3px;
-  font-size:18px;
-  text-align:center;
-  white-space:nowrap;
-
+.brand{font-weight:700; letter-spacing:.3px; font-size:18px}
+.nav{display:flex; gap:12px; align-items:center}
+.button, .chip{
+  border:1px solid color-mix(in srgb, var(--ring) 36%, transparent);
+  background:var(--card);
+  color:var(--ink);
+  border-radius:999px; padding:10px 14px; cursor:pointer;
 }
 .button:hover, .chip:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
-.button:focus-visible, .chip:focus-visible{
-  outline:3px solid color-mix(in srgb, var(--ring) 60%, transparent);
-  outline-offset:2px
-}
+.button:focus-visible, .chip:focus-visible{outline:3px solid color-mix(in srgb, var(--ring) 60%, transparent); outline-offset:2px}
 
 /* Layout */
 .container{max-width:1100px; margin:0 auto; padding:28px 20px}
 .controls{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:12px;
-  align-items:center;
-  margin:18px 0 8px;
+  display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center; margin:18px 0 8px;
 }
 .search{display:flex; gap:10px; align-items:center}
 .search input{
-  width:100%;
-  padding:12px 14px;
-  border-radius:12px;
-  border:1px solid color-mix(in srgb, var(--ring) 36%, transparent);
-  background:var(--card);
-  color:var(--ink)
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid color-mix(in srgb, var(--ring) 36%, transparent); background:var(--card); color:var(--ink)
 }
 .tagbar{display:flex; flex-wrap:wrap; gap:8px}
 
 /* Grid */
-.grid{display:grid; gap:20px; grid-template-columns:repeat(12,1fr)}
+.grid{
+  display:grid; gap:20px; grid-template-columns:repeat(12,1fr);
+}
 @media (max-width: 999px){ .grid{grid-template-columns:repeat(8,1fr)} }
 @media (max-width: 640px){ .grid{grid-template-columns:repeat(4,1fr)} }
 
@@ -95,27 +69,17 @@ body{
   overflow:hidden;
   border:1px solid color-mix(in srgb, var(--ring) 26%, transparent);
   box-shadow:var(--shadow);
-  display:flex;
-  flex-direction:column;
+  display:flex; flex-direction:column;
 }
 .card a{color:inherit; text-decoration:none}
-.thumb{
-  aspect-ratio:4/3;
-  width:100%;
-  display:block;
-  object-fit:cover;
-  object-position:center;
-  background:#e5e7eb
-}
+.thumb{aspect-ratio:4/3; width:100%; display:block; object-fit: cover;object-position: center;
+ background:#e5e7eb}
 .meta{padding:14px 14px 12px 14px; display:flex; flex-direction:column; gap:8px}
 .title{font-weight:700; font-size:18px; line-height:1.2}
 .badges{display:flex; gap:8px; flex-wrap:wrap}
 .badge{
-  font-size:12px;
-  color:var(--muted);
-  border:1px dashed color-mix(in srgb, var(--ring) 30%, transparent);
-  border-radius:999px;
-  padding:4px 8px;
+  font-size:12px; color:var(--muted); border:1px dashed color-mix(in srgb, var(--ring) 30%, transparent);
+  border-radius:999px; padding:4px 8px;
 }
 .summary{color:var(--muted); font-size:14px}
 .card:hover{transform:translateY(-2px); transition:transform .18s ease}
@@ -124,57 +88,57 @@ body{
 /* Utilities */
 .sr-only{position:absolute; width:1px; height:1px; margin:-1px; border:0; padding:0; clip:rect(0 0 0 0); overflow:hidden}
 .hidden{display:none !important}
-img{vertical-align:middle}
 
-/* Optional thumb mode */
-.contain-thumb{
-  object-fit:contain !important;
-  background-color:#0f172a;
+.contain-thumb {
+  object-fit: contain !important;
+  background-color: #0f172a; 
 }
 
-/* Project gallery */
+.project-gallery{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* side-by-side */
+  gap: 18px;
+  margin: 18px 0 28px;
+}
+
+/* Mobile: stack */
+@media (max-width: 700px){
+  .project-gallery{ grid-template-columns: 1fr; }
+}
+
+.project-gallery .project-image{
+  width: 100%;
+  height: 260px;            /* consistent “frame” size */
+  object-fit: contain;      /* no cropping */
+  object-position: center;
+  display: block;
+
+  background: #fff;         /* or #0f172a if you like the dark frame */
+  border-radius: 14px;
+  border: 1px solid rgba(148,163,184,.35); /* subtle border */
+}
+/* Adaptive image frames */
 .project-gallery{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
+  grid-template-columns:repeat(2, minmax(0,1fr));
   gap:18px;
   margin:18px 0 28px;
 }
+
 @media (max-width:700px){
   .project-gallery{ grid-template-columns:1fr; }
 }
 
-.project-gallery .project-image{
-  width:100%;
-  height:260px;
-  object-fit:contain;
-  object-position:center;
-  display:block;
-  background:#fff;
-  border-radius:14px;
-  border:1px solid rgba(148,163,184,.35);
-}
-
-/* Adaptive image frames */
 .img-frame{
   position:relative;
   height:280px;
   border-radius:16px;
   overflow:hidden;
-  background-clip:padding-box;
-  padding-inline:18px; /* frame padding */
-}
 
-/* Frame background options */
-.bg-gray{background:#d0d3d4}
-.bg-black{background:#000}
-.bg-white{background:#ffffff}
-.bg-cad{
-  background: linear-gradient(
-    to bottom,
-    #d6d8d9 0%,
-    #d6d8d9 40%,
-    #cfd2d3 100%
-  );
+  /* hard reset — removes all artifacts */
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .img-frame img{
@@ -182,121 +146,150 @@ img{vertical-align:middle}
   height:100%;
   object-fit:contain;
   display:block;
-  border:0;
-  outline:0;
+
+  border:none;
+  outline:none;
   box-shadow:none;
-  background:transparent;
 }
 
-/* Make sure image backgrounds don’t add a “white margin” look */
-.img-frame .project-image{ background:transparent; }
-.project-image{ display:block; vertical-align:middle; }
-img{ line-height:0; }
+.bg-gray {
+  background: #d0d3d4;   /* matches your CAD gray */
+}
 
-/* ===== FINAL OVERRIDES (keep at bottom) ===== */
+.bg-black {
+  background: #000;   /* matches your drawing black */
+
+  
+}
+.bg-white {
+  background: #ffffff;
+}
+.bg-cad {
+  background: linear-gradient(
+    to bottom,
+    #d6d8d9 0%,
+    #d6d8d9 40%,
+    #cfd2d3 100%
+  );
+}
+.bg-cad{
+  background: linear-gradient(
+    to bottom,
+    #d6d8d9 0%,
+    #d6d8d9 40%,
+    #cfd2d3 100%
+  );
+  padding-inline: 18px;   /* ← this is the magic */
+}
+.img-frame{
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+
+
+/* Let frame color replace image's white margin */
+.img-frame{
+  background-clip: padding-box;
+}
+
+.img-frame .project-image{
+  background: transparent;     /* remove image's white fill effect */
+}
+.project-image {
+  display: block;
+  vertical-align: middle;
+}
+img {
+  line-height: 0;
+}
+/* ===== FINAL OVERRIDES (put at bottom of style.css) ===== */
+
+/* Kill the blur/overlay layer that can look like a line/film */
 .img-frame::before{
-  content:none !important;
-  display:none !important;
+  content: none !important;
+  display: none !important;
 }
 
+/* Remove any borders/inner lines/shadows on the frame */
+.img-frame{
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Make sure the image itself isn't adding a line */
 .img-frame img,
 .project-image{
-  border:0 !important;
-  outline:0 !important;
-  box-shadow:none !important;
-  background:transparent !important;
+  display: block !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important; /* lets the frame color show */
 }
 
-/* ===== Profile avatar + lightbox ===== */
-.profile-pic{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  overflow:hidden;
-  border:none;
-  padding:0;
+/* Just in case the “line” is baseline/spacing related */
+img{
+  vertical-align: middle !important;
+}
+/* ===== Header avatar next to name ===== */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar-btn{
+  border:0;
   background:transparent;
+  padding:0;
   cursor:pointer;
-  flex-shrink:0;
-  line-height:0;
+  border-radius:999px;
+  line-height:0; /* removes weird button spacing */
 }
 
-.profile-pic img{
-  width:100%;
-  height:100%;
+.avatar{
+  width:34px;      /* make smaller/bigger here */
+  height:34px;
+  border-radius:50%;
   object-fit:cover;
-  display:block;
+  border:1px solid color-mix(in srgb, var(--ring) 45%, transparent);
+  box-shadow: 0 2px 10px rgba(0,0,0,.18);
 }
 
-.lightbox.hidden{ display:none; }
+.avatar-btn:focus-visible{
+  outline:3px solid color-mix(in srgb, var(--ring) 60%, transparent);
+  outline-offset:2px;
+}
 
+.brand-name{
+  font-weight:700;
+  letter-spacing:.3px;
+  font-size:18px;
+}
+
+/* ===== Lightbox (click avatar -> full photo) ===== */
 .lightbox{
   position:fixed;
   inset:0;
   z-index:9999;
+  display:grid;
+  place-items:center;
 }
 
 .lightbox-backdrop{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.6);
   border:0;
+  background: rgba(0,0,0,.65);
   cursor:pointer;
 }
 
 .lightbox-img{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  max-width:min(90vw, 520px);
-  max-height:90vh;
-  border-radius:14px;
-  box-shadow:0 12px 40px rgba(0,0,0,.45);
+  position:relative;
+  max-width: min(92vw, 820px);
+  max-height: 88vh;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.45);
   border:1px solid rgba(255,255,255,.12);
 }
-/* Header nav links follow theme (works in light + dark) */
-.header .nav a,
-.header .nav a:visited{
-  color: var(--ink);
-  text-decoration: none;
-}
 
-.header .nav a:hover,
-.header .nav a:focus{
-  color: var(--accent);
-  text-decoration: none;
-}
-/* === FORCE centered name in header === */
-.header-inner{ position:relative !important; }
-
-.header-inner .brand{
-  position:absolute !important;
-  left:50% !important;
-  transform:translateX(-50%) !important;
-  white-space:nowrap;
-}
-/* Force spacing between header links */
-.header .nav{
-  display:flex !important;
-  align-items:center !important;
-}
-
-.header .nav a + a{
-  margin-left: 28px !important;  /* adjust: 20/24/28/32 */
-}
-
-/* === Make project image frames look good in BOTH light + dark === */
-.project-gallery .project-image,
-.img-frame{
-  background: #ffffff;                 /* always white card */
-  border: 1px solid rgba(15,23,42,.14); /* visible in light mode */
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-}
-
-/* Keep the image itself clean */
-.img-frame img,
-.project-image{
-  background: transparent !important;
-}
