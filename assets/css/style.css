@@ -271,4 +271,13 @@ img{ line-height:0; }
   color: var(--accent);
   text-decoration: none;
 }
+/* === FORCE centered name in header === */
+.header-inner{ position:relative !important; }
+
+.header-inner .brand{
+  position:absolute !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  white-space:nowrap;
+}
 
